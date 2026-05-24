@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to {{ app_name }}</h1>
+    <p>Monthly Goal: ${{ monthly_goal }}</p>
+    
+    <h2>Our Available Services:</h2>
+    
+    {% for service in services %}
+        <div class="service-box">
+            <h3>Service Name: {{ service.title }}</h3>
+            <p>Assigned Doctor: {{ service.assigned_doctor }}</p>
+            <p class="fee">Service Fee: ${{ service.fee }}</p>
+        </div>
+    {% empty %}
+        <p>No services available right now.</p>
+    {% endfor %}
+{% endblock %}
